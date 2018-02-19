@@ -24,14 +24,16 @@ class Player:
             return True
 
     def check_if_in_middle(card1, card2):
-        return (card["rank"] in "8910J") and (card2["rank"] in "8910J")
+        return (card1["rank"] in "8910J") and (card2["rank"] in "8910J")
 
     def check_if_card_lower(card1, card2):
-        return (card["rank"] in "234567") and (card2["rank"] in "234567")
+        return (card1["rank"] in "234567") and (card2["rank"] in "234567")
 
     def check_card_distance(card1, card2):
         return check_if_card_lower(card1, card2) and ((max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3)
 
+    def check_if_same_color(card1, card2):
+        return card1["suit"] == card2["suit"]
 
 
     def betRequest(self, game_state):
