@@ -4,6 +4,7 @@ class Player:
 
     def get_self(self, game_state):
             for player in game_state["players"]:
+                print("------" + player + "------")
                 if player["name"] == "PyChart":
                     return player
 
