@@ -13,19 +13,18 @@ class Player:
     def get_stack(self, game_state):
         return game_state["stack"]
 
+    def check_if_card_higher_than(card):
+        if card["rank"] in "QKA":
+            return True
+
     def betRequest(self, game_state):
-        print("*********************")
         print(game_state)
-            #print(game_state[i])
-            
-        
-        # current_game = game_state  # json.loads(game_state)
-        # self_data = get_self(current_game)
-        # current_stack = get_stack(self_data)
-        # received_hand = get_cards(self_data)
-        # if received_hand[0]["rank"] == received_hand[1]["rank"]:
-          #  return 1000
-        return 1000
+        self_data = get_self(current_game)
+        current_stack = get_stack(self_data)
+        received_hand = get_cards(self_data)
+        if received_hand[0]["rank"] == received_hand[1]["rank"]:
+            return current_stack
+        return 0
 
     def showdown(self, game_state):
         pass
