@@ -15,6 +15,8 @@ class Player:
 
     def betRequest(self, game_state):
         print("*********************")
+        print("game state:")
+        print(game_state)
         for i in game_state:
             print(i)
             #print(game_state[i])
