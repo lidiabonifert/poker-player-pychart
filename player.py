@@ -18,7 +18,8 @@ class Player:
         print("game state:")
         print(game_state)
         for i in game_state:
-            print(i)
+            #print(i)
+            print(game_state["players"])
             #print(game_state[i])
             
         # sys.stderr.write(game_state)
