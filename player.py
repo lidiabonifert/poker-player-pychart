@@ -5,21 +5,20 @@ import json
 class Player:
     VERSION = "Error check"
 
-    def get_self(self, current_game):
-        for i in range(0, len(current_game["players"])):
-            if current_game["players"][i]["name"] == "PyChart":
-                return current_game["players"][i]
-
-    def get_cards(self, self_data):
-        first_card = self_data["hole_cards"][0]
-        second_card = self_data["hole_cards"][1]
+    def get_cards(self, game_state):
+        first_card = game_state["hole_cards"][0]
+        second_card = game_state["hole_cards"][1]
         return first_card, second_card
 
-    def get_stack(self, self_data):
-        return self_data["stack"]
+    def get_stack(self, game_state):
+        return game_state["stack"]
 
     def betRequest(self, game_state):
-        print(game_state)
+        print("*********************")
+        for i in game_state:
+            print("i: " + i)
+            print("gamestate i:" + game_state[i])
+            print(game_state[i]["name"])
         # sys.stderr.write(game_state)
         # current_game = game_state  # json.loads(game_state)
         # self_data = get_self(current_game)
