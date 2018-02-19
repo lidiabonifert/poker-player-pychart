@@ -1,7 +1,3 @@
-import json
-import math.*
-# import sys
-
 
 class Player:   
     VERSION = "0.1"
@@ -31,8 +27,10 @@ class Player:
 
     def check_card_distance(self, card1, card2):
         return Player.check_if_card_lower(card1, card2) and (
-                    max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3
+                    max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3)
 
+    def check_if_same_color(self, card1, card2):
+        return card1["suit"] == card2["suit"]
 
 
     def betRequest(self, game_state):
