@@ -19,8 +19,16 @@ class Player:
         return game_state["stack"]
 
     def check_if_card_higher_than(card1, card2):
-        if card["rank"] in "QKA" and card2["rank"] in "QKA":
+        if (card["rank"] in "QKA") and (card2["rank"] in "QKA"):
             return True
+
+    def check_if_in_middle(card1, card2):
+        return (card["rank"] in "8910J") and (card2["rank"] in "8910J")
+
+    def check_if_card_lower(card1, card2):
+        return (card["rank"] in "234567") and (card2["rank"] in "234567")
+
+
 
     def betRequest(self, game_state):
         print("*********************")
