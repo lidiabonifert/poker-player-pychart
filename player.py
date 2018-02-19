@@ -1,4 +1,5 @@
 import json
+import math.*
 # import sys
 
 
@@ -27,6 +28,9 @@ class Player:
 
     def check_if_card_lower(card1, card2):
         return (card["rank"] in "234567") and (card2["rank"] in "234567")
+
+    def check_card_distance(card1, card2):
+        return check_if_card_lower(card1, card2) and ((max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3)
 
 
 
