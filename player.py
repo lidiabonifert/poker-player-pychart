@@ -75,6 +75,8 @@ class Player:
             else:
                 if self.check_card_distance(first_card, second_card):
                     return self.check_highest_bet(game_state)
+                elif self.check_if_same_color(first_card, second_card) and self.check_card_distance(first_card, second_card):
+                    return self.check_highest_bet(game_state)
                 return 0
 
         except Exception, e:
