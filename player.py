@@ -82,7 +82,7 @@ class Player:
                     return self.check_highest_bet(game_state)
             else:
                 if self.check_if_same_color(first_card, second_card):
-                    if self.checkrgdfg_card_distance(first_card, second_card):
+                    if self.check_card_distance(first_card, second_card):
                         return int(self.get_our_stash(self_data) * 0.6)
                 elif self.check_card_distance(first_card, second_card):
                     return self.check_highest_bet(game_state)
