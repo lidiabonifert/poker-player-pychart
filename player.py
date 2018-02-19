@@ -1,4 +1,5 @@
 import json
+import sys
 
 
 class Player:
@@ -18,6 +19,7 @@ class Player:
         return self_data["stack"]
 
     def betRequest(self, game_state):
+        sys.stderr.write(game_state)
         current_game = game_state  # json.loads(game_state)
         self_data = get_self(current_game)
         current_stack = get_stack(self_data)
