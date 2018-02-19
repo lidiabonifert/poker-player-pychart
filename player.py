@@ -40,7 +40,7 @@ class Player:
     def check_card_distance(self, card1, card2):
         Player.assign_number_to_card_value(card1)
         Player.assign_number_to_card_value(card2)
-        return ((max(int(card1["rank"]), int(card2["rank"])) - (min(int(card1["rank"]), int(card2["rank"]))) < 3)
+        return ((max(int(card1["rank"]), int(card2["rank"])) - (min(int(card1["rank"]), int(card2["rank"]))) < 3))
 
     def check_if_same_color(self, card1, card2):
         return card1["suit"] == card2["suit"]
