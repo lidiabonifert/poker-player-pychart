@@ -38,6 +38,10 @@ class Player:
         if (card1["rank"] in "QKA") and (card2["rank"] in "QKA"):
             return True
 
+    def check_if_one_card_higher_than(self, card1, card2):
+        if (card1["rank"] in "QKA") or (card2["rank"] in "QKA"):
+            return True
+    
     def check_if_in_middle(self, card1, card2):
         return (card1["rank"] in "8910J") and (card2["rank"] in "8910J")
 
@@ -51,6 +55,10 @@ class Player:
 
     def check_if_same_color(self, card1, card2):
         return card1["suit"] == card2["suit"]
+
+    def is_after_flop(game_state):
+            if len(game_state["community_cards"]) > 0:
+                return True
 
     def betRequest(self, game_state):
         try:
@@ -78,9 +86,9 @@ class Player:
                 elif self.check_if_same_color(first_card, second_card):
                     if self.check_card_distance(first_card, second_card):
                         return int(self.get_our_stash(self_data) * 0.6)
-                    elif int(self.get_our_stash(self_data) * 0.5) > self.check_highest_bet(game_state):
-                        return int(self.get_our_stash(self_data) * 0.2)
-                elif check_if_card_higher_than(first_card, second_card):
+                elif self.check_if_card_higher_than(first_card, second_card):
+                    return self.check_highest_bet(game_state)
+                elif self.check_if_one_card_higher_than(first_card, second_card):
                     return self.check_highest_bet(game_state)
                 return 0
 
