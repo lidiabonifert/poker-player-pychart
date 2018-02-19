@@ -32,11 +32,11 @@ json_string = '''{
           "bet": 80,
           "hole_cards": [
               {
-                  "rank": "6",
+                  "rank": "7",
                   "suit": "hearts"
               },
               {
-                  "rank": "K",
+                  "rank": "7",
                   "suit": "spades"
               }
           ]

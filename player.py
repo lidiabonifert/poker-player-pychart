@@ -10,7 +10,7 @@ class Player:
             if player["name"] == "PyChart":
                 return player
 
-    def check_highest_bet(game_state):
+    def check_highest_bet(self, game_state):
         return game_state["current_buy_in"]        
 
     def get_cards(self, get_self):
@@ -67,14 +67,14 @@ class Player:
             print(second_card)
             if first_card["rank"] == second_card["rank"]:
                 if self.check_if_card_higher_than(first_card, second_card):
-                    return 1000
+                    return self.get_our_stash(self_data)
                 elif self.check_if_card_lower(first_card, second_card):
-                    return 100
+                    return self.check_highest_bet(game_state)
                 elif self.check_if_in_middle(first_card, second_card):
-                    return 200
+                    return self.check_highest_bet(game_state)
             else:
                 if self.check_card_distance(first_card, second_card):
-                    return 100
+                    return self.check_highest_bet(game_state)
                 return 0
 
         except Exception, e:
