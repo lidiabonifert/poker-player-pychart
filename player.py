@@ -7,9 +7,9 @@ class Player:
     VERSION = "0.1"
 
     def get_self(self, game_state):
-            for i in range(0, len(game_state["players"])):
-                if game_state["players"][i]["name"] == "PyChart":
-                    return game_state["players"][i]
+            for player in game_state["players"]:
+                if player["name"] == "PyChart":
+                    return player
 
     def get_cards(self, get_self):
         first_card = get_self["hole_cards"][0]
@@ -19,18 +19,19 @@ class Player:
     def get_stack(self, game_state):
         return game_state["stack"]
 
-    def check_if_card_higher_than(card1, card2):
-        if (card["rank"] in "QKA") and (card2["rank"] in "QKA"):
+    def check_if_card_higher_than(self, card1, card2):
+        if (card1["rank"] in "QKA") and (card2["rank"] in "QKA"):
             return True
 
-    def check_if_in_middle(card1, card2):
-        return (card["rank"] in "8910J") and (card2["rank"] in "8910J")
+    def check_if_in_middle(self, card1, card2):
+        return (card1["rank"] in "8910J") and (card2["rank"] in "8910J")
 
-    def check_if_card_lower(card1, card2):
-        return (card["rank"] in "234567") and (card2["rank"] in "234567")
+    def check_if_card_lower(self, card1, card2):
+        return (card1["rank"] in "234567") and (card2["rank"] in "234567")
 
-    def check_card_distance(card1, card2):
-        return check_if_card_lower(card1, card2) and ((max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3)
+    def check_card_distance(self, card1, card2):
+        return Player.check_if_card_lower(card1, card2) and (
+                    max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3
 
 
 
