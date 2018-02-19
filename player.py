@@ -32,7 +32,7 @@ class Player:
 
     def betRequest(self, game_state):
         print("*********************")
-        print(get_self["name"])
+        print(Player.get_self["name"])
         self_data = Player.get_self(game_state)
         received_hand = Player.get_cards(self_data)
         print("self data:")
