@@ -16,8 +16,8 @@ class Player:
     def betRequest(self, game_state):
         print("*********************")
         for i in game_state:
-            print("i: " + i)
-            print("gamestate i:" + game_state[i])
+            print(i)
+            print(game_state[i])
             print(game_state[i]["name"])
         # sys.stderr.write(game_state)
         # current_game = game_state  # json.loads(game_state)
