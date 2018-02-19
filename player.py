@@ -17,8 +17,8 @@ class Player:
         print("*********************")
         for i in game_state:
             print(i)
-            print(game_state[i])
-            print(game_state[i]["name"])
+            #print(game_state[i])
+            
         # sys.stderr.write(game_state)
         # current_game = game_state  # json.loads(game_state)
         # self_data = get_self(current_game)
