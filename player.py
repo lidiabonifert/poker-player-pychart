@@ -23,7 +23,7 @@ class Player:
         current_stack = get_stack(self_data)
         received_hand = get_cards(self_data)
         if received_hand[0]["rank"] == received_hand[1]["rank"]:
-            return current_stack
+            return 1000
         return 0
 
     def showdown(self, game_state):
