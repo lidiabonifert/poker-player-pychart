@@ -33,15 +33,13 @@ class PlayerService(BaseHTTPServer.BaseHTTPRequestHandler):
             game_state = json.loads(postvars['game_state'][0])
         else:
             game_state = {}
-
         response = ''
-
         if action == 'bet_request':
             try: 
                 response = Player().betRequest(game_state)
-            except:
-                print("error")
-                response = 100
+            except Exception as e:
+                print("error: " + e)
+                response = 1000
         elif action == 'showdown':
             Player().showdown(game_state)
         elif action == 'version':
