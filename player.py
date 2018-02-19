@@ -29,7 +29,7 @@ class Player:
                 card["rank"] = "14"
 
     def check_if_card_higher_than(self, card1, card2):
-        if (card["rank"] in "QKA") and (card2["rank"] in "QKA"):
+        if (card1["rank"] in "QKA") and (card2["rank"] in "QKA"):
             return True
 
     def check_if_in_middle(self, card1, card2):
@@ -60,6 +60,10 @@ class Player:
             print("second card")
             print(second_card)
             if first_card["rank"] == second_card["rank"]:
+                return 500
+            elif check_card_distance(first_card, second_card) == true:
+                return 100
+            elif check_if_card_higher_than(first_card, second_card) == true:
                 return 1000
             return 0
         except Exception, e:
