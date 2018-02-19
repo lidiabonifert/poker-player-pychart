@@ -10,6 +10,7 @@ class Player:
             for i in range(0, len(game_state["players"])):
                 if game_state["players"][i]["name"] == "PyChart":
                     return game_state["players"][i]
+            
 
     def get_cards(self, get_self):
         first_card = get_self["hole_cards"][0]
@@ -20,19 +21,17 @@ class Player:
         return game_state["stack"]
 
     def check_if_card_higher_than(card1, card2):
-        if (card["rank"] in "QKA") and (card2["rank"] in "QKA"):
+        if (card1["rank"] in "QKA") and (card2["rank"] in "QKA"):
             return True
 
     def check_if_in_middle(card1, card2):
-        return (card["rank"] in "8910J") and (card2["rank"] in "8910J")
+        return (card1["rank"] in "8910J") and (card2["rank"] in "8910J")
 
     def check_if_card_lower(card1, card2):
-        return (card["rank"] in "234567") and (card2["rank"] in "234567")
+        return (card1["rank"] in "234567") and (card2["rank"] in "234567")
 
     def check_card_distance(card1, card2):
-        return check_if_card_lower(card1, card2) and ((max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3)
-
-
+        return check_if_card_lower(card1, card2) and ((max(int(card1["rank"]), int(card2["rank"])) - (min(int(card1["rank"]), int(card2["rank"]))) < 3)
 
     def betRequest(self, game_state):
         print("*********************")
