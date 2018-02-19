@@ -1,12 +1,14 @@
+import traceback
+
 
 class Player:   
     VERSION = "0.1"
 
     def get_self(self, game_state):
-            for player in game_state["players"]:
-                print("------" + player + "------")
-                if player["name"] == "PyChart":
-                    return player
+        for player in game_state["players"]:
+            print("------" + str(player) + "------")
+            if player["name"] == "PyChart":
+                return player
 
     def get_cards(self, get_self):
         first_card = get_self["hole_cards"][0]
@@ -25,7 +27,6 @@ class Player:
                     card["rank"] = "13"
             elif card["rank"] == "A":
                 card["rank"] = "14"
-       
 
     def check_if_card_higher_than(self, card1, card2):
         if (card["rank"] in "QKA") and (card2["rank"] in "QKA"):
@@ -38,28 +39,34 @@ class Player:
         return (card1["rank"] in "234567") and (card2["rank"] in "234567")
 
     def check_card_distance(self, card1, card2):
-        Player.assign_number_to_card_value(card1)
-        Player.assign_number_to_card_value(card2)
+        self.assign_number_to_card_value(card1)
+        self.assign_number_to_card_value(card2)
         return ((max(int(card1["rank"]), int(card2["rank"])) - (min(int(card1["rank"]), int(card2["rank"]))) < 3))
 
     def check_if_same_color(self, card1, card2):
         return card1["suit"] == card2["suit"]
 
     def betRequest(self, game_state):
-        print("*********************")
-        self_data = Player.get_self(game_state)
-        received_hand = Player.get_cards(self_data)
-        print("self data:")
-        print(self_data)
-        first_card = received_hand[0]
-        print("first card: ")
-        print(first_card)
-        second_card = received_hand[1]
-        print("second card")
-        print(second_card)
-        if first_card["rank"] == second_card["rank"]:
-            return 1000
-        return 0
+        try:
+            print("*********************")
+            self_data = self.get_self(game_state)
+            received_hand = self.get_cards(self_data)
+            print("self data:")
+            print(self_data)
+            first_card = received_hand[0]
+            print("first card: ")
+            print(first_card)
+            second_card = received_hand[1]
+            print("second card")
+            print(second_card)
+            if first_card["rank"] == second_card["rank"]:
+                return 1000
+            return 0
+        except Exception, e:
+            print("error")
+            print(str(e))
+            traceback.print_exc()
+            return 0
 
     def showdown(self, game_state):
         pass
