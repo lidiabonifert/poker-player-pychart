@@ -2,7 +2,7 @@ import json
 
 
 class Player:
-    VERSION = "All in!!"
+    VERSION = "Error check"
 
     def get_self(self, current_game):
         for i in range(0, len(current_game["players"])):
@@ -18,7 +18,7 @@ class Player:
         return self_data["stack"]
 
     def betRequest(self, game_state):
-        current_game = json.loads(game_state)
+        current_game = game_state  # json.loads(game_state)
         self_data = get_self(current_game)
         current_stack = get_stack(self_data)
         received_hand = get_cards(self_data)
