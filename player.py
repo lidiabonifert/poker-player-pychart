@@ -16,8 +16,19 @@ class Player:
     def get_stack(self, game_state):
         return game_state["stack"]
 
+    def assign_number_to_card_value(self, card):
+            if card["rank"] == "J":
+                card["rank"] = "11"
+            elif card["rank"] == "Q":
+                    card["rank"] = "12"
+            elif card["rank"] == "K":
+                    card["rank"] = "13"
+            elif card["rank"] == "A":
+                card["rank"] = "14"
+       
+
     def check_if_card_higher_than(self, card1, card2):
-        if (card1["rank"] in "QKA") and (card2["rank"] in "QKA"):
+        if (card["rank"] in "QKA") and (card2["rank"] in "QKA"):
             return True
 
     def check_if_in_middle(self, card1, card2):
@@ -27,12 +38,12 @@ class Player:
         return (card1["rank"] in "234567") and (card2["rank"] in "234567")
 
     def check_card_distance(self, card1, card2):
-        return Player.check_if_card_lower(card1, card2) and (
-                    max(int(card1["rank"]), int(card1["rank"])) - (min(int(card1["rank"]), int(card1["rank"]))) < 3)
+        Player.assign_number_to_card_value(card1)
+        Player.assign_number_to_card_value(card2)
+        return ((max(int(card1["rank"]), int(card2["rank"])) - (min(int(card1["rank"]), int(card2["rank"]))) < 3)
 
     def check_if_same_color(self, card1, card2):
         return card1["suit"] == card2["suit"]
-
 
     def betRequest(self, game_state):
         print("*********************")
