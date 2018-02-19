@@ -15,9 +15,7 @@ class Player:
 
     def betRequest(self, game_state):
         print("*********************")
-        for i in game_state:
-            #print(i)
-            print(game_state["players"])
+        print(game_state["players"])
             #print(game_state[i])
             
         # sys.stderr.write(game_state)
