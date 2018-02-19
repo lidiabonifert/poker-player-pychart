@@ -15,10 +15,10 @@ class Player:
 
     def betRequest(self, game_state):
         print("*********************")
-        print(game_state["players"])
+        print(game_state)
             #print(game_state[i])
             
-        # sys.stderr.write(game_state)
+        
         # current_game = game_state  # json.loads(game_state)
         # self_data = get_self(current_game)
         # current_stack = get_stack(self_data)
