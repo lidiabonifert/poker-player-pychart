@@ -66,14 +66,14 @@ class Player:
             print("second card")
             print(second_card)
             if first_card["rank"] == second_card["rank"]:
-                if check_if_card_higher_than(first_card, second_card) == true:
+                if self.check_if_card_higher_than(first_card, second_card) == true:
                     return 1000
-                elif check_if_card_lower(first_card, second_card)==true:
+                elif self.check_if_card_lower(first_card, second_card) == true:
                     return 100
-                elif check_if_in_middle(first_card, second_card)==true:
+                elif self.check_if_in_middle(first_card, second_card) == true:
                     return 200
             else:
-                if check_card_distance(first_card, second_card) == true:
+                if self.check_card_distance(first_card, second_card) == true:
                     return 100
                 return 0
 
