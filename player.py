@@ -51,7 +51,7 @@ class Player:
     def check_card_distance(self, card1, card2):
         self.assign_number_to_card_value(card1)
         self.assign_number_to_card_value(card2)
-        return ((max(int(card1["rank"]), int(card2["rank"])) - (min(int(card1["rank"]), int(card2["rank"]))) < 3))
+        return ((max(int(card1["rank"]), int(card2["rank"])) - (min(int(card1["rank"]), int(card2["rank"]))) < 4))
 
     def check_if_same_color(self, card1, card2):
         return card1["suit"] == card2["suit"]
@@ -83,7 +83,7 @@ class Player:
             else:
                 if self.check_if_same_color(first_card, second_card):
                     if self.check_card_distance(first_card, second_card):
-                        return int(self.get_our_stash(self_data) * 0.6)
+                        return int(self.get_our_stash(self_data) * 0.8)
                 elif self.check_card_distance(first_card, second_card):
                     return self.check_highest_bet(game_state)
                 elif self.check_if_card_higher_than(first_card, second_card):
